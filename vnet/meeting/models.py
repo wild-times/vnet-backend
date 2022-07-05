@@ -11,7 +11,7 @@ class Meeting(models.Model):
     host = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     notes = models.TextField(help_text='More info about the meeting')
     start_time = models.DateTimeField(help_text='Time and date the meeting starts')
-    duration = models.IntegerField(help_text='duration of the meeting in seconds')
+    end_time = models.DateTimeField(help_text='Time and date the meeting ends', null=True)
 
     def __str__(self):
         return f'<Meeting titles {self.title}>'
