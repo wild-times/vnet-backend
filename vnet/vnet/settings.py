@@ -28,6 +28,7 @@ INSTALLED_APPS = [
 
     'core.apps.CoreConfig',
     'help.apps.HelpConfig',
+    'meeting.apps.MeetingConfig',
 ]
 
 MIDDLEWARE = [
