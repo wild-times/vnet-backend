@@ -1,2 +1,8 @@
-- name: PEP8 Action
-  uses: quentinguidee/pep8-action@v2.0.13-dev
+name: PEP8 Action
+on: [pull_request]
+
+jobs:
+  check-bats-version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: quentinguidee/pep8-action@v2.0.13-dev
