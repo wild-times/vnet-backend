@@ -6,7 +6,7 @@ class ACSWork:
         self.get_response = get_response
 
     def __call__(self, request):
-        if request.user:
+        if request.user.is_authenticated:
             if not request.user.acs_identity:
                 # create an identity and token if none exists
                 create_azure_identity(request.user.pk)
