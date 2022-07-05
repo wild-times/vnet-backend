@@ -2,3 +2,4 @@ env/*
 *.pyc
 *.sqlite3
 vnet/.idea/*
+vnet/vnet/*.txt
