@@ -14,7 +14,7 @@ class CoreUserModelAdmin(admin.ModelAdmin):
         ),
         (
             'ACS', {
-                'fields': ['meeting_name', 'acs_identity', 'acs_token']
+                'fields': ['meeting_name', 'acs_identity', 'acs_token', 'acs_token_expiration']
             }
         ),
         (
@@ -28,4 +28,4 @@ class CoreUserModelAdmin(admin.ModelAdmin):
             }
         )
     ]
-    readonly_fields = ['acs_identity', 'acs_token', 'date_joined', 'last_login']
+    readonly_fields = ['acs_identity', 'acs_token', 'acs_token_expiration', 'date_joined', 'last_login']

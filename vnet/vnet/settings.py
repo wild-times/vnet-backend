@@ -8,7 +8,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-fqk!@k6lauo#-5h5)+gd2+wqzh&mr*(zrz+f!jlu^egxdne9=#'
+with open('vnet/secret_key.txt', 'r') as f:
+    SECRET_KEY = f.read().strip()
+
+with open('vnet/acs.txt', 'r') as f:
+    ACS_CONNECTION_STRING = f.read().strip()
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -40,6 +44,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'core.acs.ACSWork',
 ]
 
 ROOT_URLCONF = 'vnet.urls'

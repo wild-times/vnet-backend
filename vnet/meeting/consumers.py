@@ -34,18 +34,19 @@ class VNETSignaling(AsyncJsonWebsocketConsumer):
         self.room_code = self.scope['url_route']['kwargs']['code']
         room_mem = len(self.channel_layer.groups.get(self.room_code, {}).items())
 
-        if room_mem < 2:
-            await self.channel_layer.group_add(self.room_code, self.channel_name)
-            await self.accept()
+        if self.scope['user'].is_authenticated:
+            if room_mem < 2:
+                await self.channel_layer.group_add(self.room_code, self.channel_name)
+                await self.accept()
 
-            await self.channel_layer.group_send(self.room_code, {
-                'type': 'signal_assure',
-                'content': {
-                    'type': self.signal_types.SIGNAL_CONNECTED,
-                    'code': self.room_code,
-                    'peers_count': room_mem + 1,
-                }
-            })
+                await self.channel_layer.group_send(self.room_code, {
+                    'type': 'signal_assure',
+                    'content': {
+                        'type': self.signal_types.SIGNAL_CONNECTED,
+                        'code': self.room_code,
+                        'peers_count': room_mem + 1,
+                    }
+                })
 
     async def receive_json(self, content, **kwargs):
         if type(content) == dict and content.get('type') and content.get('content'):
