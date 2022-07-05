@@ -8,6 +8,9 @@ urlpatterns = [
 
     # help/
     path('help/', include('help.urls')),
+
+    # core/
+    path('core/', include('core.urls')),
 ]
 
 
