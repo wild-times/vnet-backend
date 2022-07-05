@@ -4,6 +4,8 @@ from azure.communication.identity import CommunicationIdentityClient, Communicat
 from django.conf import settings
 from django.core.exceptions import ObjectDoesNotExist
 from django.utils import timezone
+from django.db.models.signals import post_delete, post_save
+from django.dispatch import receiver
 
 from core.models import CoreUser
 
@@ -39,3 +41,20 @@ def refresh_user_token(user_pk):
 
     except ObjectDoesNotExist:
         pass
+
+
+@receiver(post_save, sender=CoreUser)
+def create_user_acs_identity(**kwargs):
+    if kwargs.get('created'):
+        user = kwargs.get('instance')
+
+        if not user.acs_identity:
+            create_azure_identity(user.pk)
+
+
+@receiver(post_delete, sender=CoreUser)
+def delete_user_acs_identity(**kwargs):
+    user = kwargs.get('instance')
+
+    if user.acs_identity:
+        acs_client.delete_user(CommunicationUserIdentifier(user.acs_identity))
