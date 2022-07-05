@@ -12,3 +12,9 @@ class CoreUser(AbstractUser):
         blank=True,
         null=True
     )
+
+    def __str__(self):
+        return f'CoreUser: {self.username}'
+
+    def __repr__(self):
+        return f'<CoreUser: {self.username}>'

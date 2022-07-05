@@ -28,3 +28,4 @@ class CoreUserModelAdmin(admin.ModelAdmin):
             }
         )
     ]
+    readonly_fields = ['acs_identity', 'acs_token', 'date_joined', 'last_login']

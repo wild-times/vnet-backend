@@ -18,3 +18,4 @@ class MeetingModelAdmin(admin.ModelAdmin):
             }
         )
     ]
+    readonly_fields = ['meeting_uuid', 'meeting_id']

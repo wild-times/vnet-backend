@@ -7,5 +7,8 @@ class HelpArticle(models.Model):
     tags = models.CharField(max_length=100, help_text='Comma separated values')
     objects = models.Manager()
 
+    def __repr__(self):
+        return f'<HelpArticle: {self.title}>'
+
     def __str__(self):
-        return f'<HelpArticle entry titled {self.title}>'
+        return f'HelpArticle: {self.title}'

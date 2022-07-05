@@ -17,7 +17,10 @@ class Meeting(models.Model):
     end_time = models.DateTimeField(help_text='Time and date the meeting ends', null=True)
 
     def __str__(self):
-        return f"<Meeting titled '{self.title}'>"
+        return f"Meeting: {self.title}"
+
+    def __repr__(self):
+        return f"<Meeting: {self.title}>"
 
     def save(self, *args, **kwargs):
         # add meeting UUID
