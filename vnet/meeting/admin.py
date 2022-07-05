@@ -1,3 +1,20 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Meeting
+
+
+@admin.register(Meeting)
+class MeetingModelAdmin(admin.ModelAdmin):
+    list_display = ['title', 'meeting_id', 'host']
+    fieldsets = [
+        (
+            None, {
+                'fields': ['title', 'host', 'notes', 'start_time', 'end_time']
+            }
+        ),
+        (
+            'MISC', {
+                'fields': ['meeting_uuid', 'meeting_id']
+            }
+        )
+    ]
