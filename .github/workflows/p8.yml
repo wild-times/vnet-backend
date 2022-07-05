@@ -1,8 +1,0 @@
-name: PEP8 Action
-on: [push]
-
-jobs:
-  check-bats-version:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: quentinguidee/pep8-action@v2.0.13-dev
