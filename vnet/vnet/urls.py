@@ -11,6 +11,9 @@ urlpatterns = [
 
     # core/
     path('core/', include('core.urls')),
+
+    # meeting/
+    path('meeting/', include('meeting.urls')),
 ]
 
 

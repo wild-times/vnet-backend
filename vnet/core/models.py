@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser, UserManager
+from django.core.exceptions import ObjectDoesNotExist
+from rest_framework.authtoken.models import Token
 
 
 class CoreUser(AbstractUser):
@@ -19,3 +21,18 @@ class CoreUser(AbstractUser):
 
     def __repr__(self):
         return f'<CoreUser: {self.username}>'
+
+    def get_auth_token(self):
+        try:
+            token = Token.objects.get(user__pk=self.pk).key
+        except ObjectDoesNotExist:
+            token = ''
+        return token
+
+    def save(self, *args, **kwargs):
+        super().save()
+        try:
+            Token.objects.get(user__pk=self.pk)
+        except ObjectDoesNotExist:
+            Token.objects.create(user=self)
+        return self
