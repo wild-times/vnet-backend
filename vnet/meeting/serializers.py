@@ -13,7 +13,7 @@ class MeetingSerializer(ModelSerializer):
     class Meta:
         model = Meeting
         fields = (
-            'title', 'notes', 'start_time', 'end_time', 'meeting_uuid', 'meeting_id', 'host', 'meeting_url'
+            'title', 'notes', 'start_time', 'end_time', 'meeting_uuid', 'meeting_id', 'meeting_url', 'host'
         )
 
     def fields_info(self):
