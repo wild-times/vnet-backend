@@ -15,3 +15,15 @@ class MeetingSerializer(ModelSerializer):
         fields = (
             'title', 'notes', 'start_time', 'end_time', 'meeting_uuid', 'meeting_id', 'host', 'meeting_url'
         )
+
+    def fields_info(self):
+        """Return info about the fields of the serializer"""
+        return {
+            key: {
+                'help_text': field.help_text,
+                'required': field.required
+            } for key, field in self.fields.items() if not field.read_only
+        }
+
+    def save(self, **kwargs):
+        return Meeting(**self.validated_data)
