@@ -4,6 +4,7 @@ from time import time
 
 from django.db import models
 from django.conf import settings
+from django.urls import reverse
 
 
 class Meeting(models.Model):
@@ -21,6 +22,9 @@ class Meeting(models.Model):
 
     def __repr__(self):
         return f"<Meeting: {self.title}>"
+
+    def get_meeting_url(self):
+        return reverse('meeting:meeting-details', kwargs={'meeting_id': self.meeting_id})
 
     def save(self, *args, **kwargs):
         # add meeting UUID
