@@ -10,6 +10,7 @@ from .models import Meeting
 
 
 # meeting for a user
+@api_view(['GET'])
 @login_required(redirect_field_name=None, login_url=reverse_lazy('core:no-user'))
 def user_meetings(request):
     meetings = Meeting.objects.filter(host__pk=request.user.pk)
@@ -18,6 +19,7 @@ def user_meetings(request):
 
 
 # specific meeting
+@api_view(['GET'])
 @login_required(redirect_field_name=None, login_url=reverse_lazy('core:no-user'))
 def meeting_details(request, meeting_id):
     try:
