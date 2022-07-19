@@ -59,6 +59,7 @@ def login(request):
     return JsonResponse(response, status=resp_status)
 
 
+@api_view(['GET'])
 @login_required(login_url=reverse_lazy('core:no-user'), redirect_field_name=None)
 def user_details(request):
     acs = request.GET.get('acs', 0)
