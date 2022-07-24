@@ -1,0 +1,326 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+body {
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+    /* border: 5px solid blue; */
+    margin: 0;
+    padding: 0;
+    min-width: 100vw;
+    min-height: 100vh;
+    background-color: #E5E1E1;
+}
+
+.main {
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar {
+    margin: 0 0 20px 0;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #680768;
+    padding: 0 20px 0 20px;
+}
+
+.vnet_logo {
+    width: auto;
+    height: 40px;
+}
+
+.navbar_userDetails,
+.navbar_userDetails_text,
+.navbar_userDetails_avatar{
+    display: flex;
+}
+
+.navbar_userDetails {
+    width: 500px;
+    height: 60px;
+}
+
+.navbar_userDetails_text {
+    /* border: 1px dashed yellow; */
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 0;
+    padding: 0;
+}
+
+.navbar_userDetails_username,
+.navbar_userDetails_email {
+    display: flex;
+    justify-content: flex-end;
+    color: #FFFFFF;
+    height: auto;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar_userDetails_username {
+    font-weight: bold;
+}
+
+.navbar_userDetails_email {
+    /* border: 1px solid blue; */
+    font-weight: 500;
+    font-size: 12px;
+}
+
+.navbar_userDetails_avatar {
+    width: 60px;
+    height: 100%;
+    border-radius: 40%;
+    padding: 0;
+    margin-left: 10px;
+}
+
+.avatar_img {
+    width: 100%;
+    height: 100%;
+    border-radius: 40%;
+}
+
+/* ---> Problems begin here */
+.profilePage_main {
+    /* border: 5px solid blue; */
+    border: 1px solid transparent;
+    height: 76vh;
+    width: 80vw;
+    background-color: #f1f1f1;
+    border-radius: 42px 42px 0 42px;
+    padding: 20px 25px 0 25px;
+
+    display: flex;
+    align-self: center;
+}
+
+.profilePage_sidebar,
+.profilePage_user {
+    border-radius: 30px 30px 0 0;
+}
+
+.profilePage_sidebar {
+    flex: 0.25;
+    flex-direction: column;
+    padding: 20px 20px 0 20px;
+    margin-right: 20px;
+    height: 50%;
+    background: linear-gradient(180deg, #D9D9D9 0%, rgba(217, 217, 217, 0) 100%);
+}
+
+.sidebar_content {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    /* border: 1px dashed blue; */
+}
+
+ion-icon {
+    color: #5A035A;
+    height: 30px;
+    width: 30px;
+    margin-right: 10px;
+}
+
+.sidebar_content > span {
+    font-weight: 500;
+    font-style: normal;
+    font-size: 15px;
+    color: #5A035A;
+    cursor: pointer;
+}
+
+.sidebar_content > span:hover {
+    text-decoration: underline;
+}
+
+.profilePage_user {
+    flex: 0.75;
+    opacity: 100%;
+    background-color: #FCFCFC;
+    padding: 16px;
+}
+
+.banner {
+    height: 100px;
+    width: 100%;
+    border-radius: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    background: url("../Images/Background_Image.png") repeat-x;
+    /* background-repeat: repeat-x; */
+    filter: contrast(120%);
+    filter: saturate(130%);
+    filter: brightness(200%);
+}
+
+.avatar_and_name {
+    position: relative;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    padding-left: 140px;
+    padding-right: 20px;
+}
+
+.avatar_img_sub {
+    width: 90px;
+    height: 85px;
+    border-radius: 20px;
+    position: absolute;
+    left: 30px;
+    top: -25px;
+}
+
+.avatar_and_name > .user_name {
+    color: #5A035A;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.avatar_and_name > .edit_details_span {
+    color: #5A035A;
+    text-decoration: underline;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.edit_details_span:hover {
+    color: #680768;
+}
+
+.profilePage_user_details {
+    display: flex;
+    flex-direction: column;
+    padding-left: 55px;
+    margin-top: 20px;
+}
+
+.email_div,
+.joinMeeting_div,
+.newMeeting_div {
+    padding-right: 1rem;
+    display: flex;
+}
+
+.email_div {
+    align-items: center;
+    color: #330033;
+}
+
+/* .email_div > p,  */
+.email_div > span {
+    font-weight: bold;
+}
+
+.email_div > span,
+.joinMeeting_div > span,
+.newMeeting_div > span {
+    width: 25%;
+    font-weight: bold;
+    color: #330033;
+}
+
+.joinMeeting_div,
+.newMeeting_div {
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+}
+
+.joinMeeting_sub_div {
+    display: flex;
+    justify-content: space-between;
+    width: 75%;
+}
+
+.joinMeeting_sub_div > input {
+    flex: 0.7;
+    height: 1.7rem;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid lightgray;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    color: #330033;
+    background: #F4EDF4;
+    border: 2px solid #FFFFFF;
+    box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.25), inset 0px 0px 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+.joinMeeting_sub_div > input::placeholder {
+    color: #330033;
+}
+
+.joinMeeting_sub_div > input:active {
+    outline: 0;
+}
+
+.joinMeeting_sub_div > input:focus {
+    outline: none;
+}
+
+.joinMeeting_sub_div > button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #5A035A;
+    color: #FFFFFF;
+    border: 1px solid transparent;
+    flex: 0.18;
+    border-radius: 50px;
+    font-size: 15px;
+}
+
+.meeting_buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+}
+
+.meeting_buttons > button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    min-width: 200px;
+    background-color: #5A035A;
+    color: #FFFFFF;
+    border: 1px solid transparent;
+    flex: 0.18;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 500;
+    height: fit-content;
+    padding: 10px;
+}
+
+button {
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #680768;
+}
+
+button:active {
+    background-color: #330033;
+}
+
+
+
+
+
+

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>VNET Profile Page</title>
+</head>
+<body>
+    <div class="main">
+        <div class="navbar">
+            <img src="../Images/vnet_logo.png" alt="Logo" class="vnet_logo">
+            <div class="navbar_userDetails">
+                <div class="navbar_userDetails_text">
+                    <p class="navbar_userDetails_username">
+                        Shei Savage
+                    </p>
+                    <span class="navbar_userDetails_email">
+                        sheisavage2052@outlook.com
+                    </span>
+                </div>
+                <div class="navbar_userDetails_avatar">
+                    <img src="../Images/avatar_main.jpg" alt="user_avatar" class="avatar_img">
+                </div>
+            </div>
+        </div>
+
+        <div class="profilePage_main">
+            <div class="profilePage_sidebar">
+                <div class="sidebar_content">
+                    <ion-icon name="home"></ion-icon>
+                    <span class="home_title">Home</span>
+                </div>
+                <div class="sidebar_content">
+                    <ion-icon name="calendar"></ion-icon>
+                    <span class="meetings_title">Scheduled Meetings</span>
+                </div>
+                <div class="sidebar_content">
+                    <ion-icon name="trash"></ion-icon>
+                    <span class="delete_meetings_title">Delete Meetings</span>
+                </div>
+                <div class="sidebar_content">
+                    <ion-icon name="log-out-outline"></ion-icon>
+                    <span class="logout_title">Log Out</span>
+                </div>
+            </div>
+
+            <div class="profilePage_user">
+                <div class="profilePage_user_banner_and_name">
+                    <div class="banner">
+                    </div>
+                    <div class="avatar_and_name">
+                        <img src="../Images/avatar_main.jpg" alt="user_avatar" class="avatar_img_sub">
+                        <span class="user_name">Shei Savage</span>
+                        <span class="edit_details_span">Edit Profile</span>
+                    </div>
+                </div>
+
+                <div class="profilePage_user_details">
+                    <div class="email_div">
+                        <span>Email</span>
+                        <p class="user_email">sheisavage2052@outlook.com</p>
+                    </div>
+                    <div class="joinMeeting_div">
+                        <span>Join Meeting</span>
+                        <div class="joinMeeting_sub_div">
+                            <input type="text" placeholder="Enter Meeting Code">
+                            <button>Join</button>
+                        </div>
+                    </div>
+                    <div class="newMeeting_div">
+                        <span>New Meeting</span>
+                        <div class="meeting_buttons">
+                            <button class="create_meeting">Create Meeting</button>
+                            <button class="schedule_meeting">Schedule Meeting</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
