@@ -32,7 +32,7 @@ def refresh_user_token(user_pk):
         user = CoreUser.objects.get(pk=user_pk)
         mins_to_exp = (user.acs_token_expiration - timezone.now()).seconds / 60
 
-        if mins_to_exp < 120:
+        if (timezone.now() > user.acs_token_expiration) or (mins_to_exp < 120):
             acs_user = CommunicationUserIdentifier(user.acs_identity)
             acs_token = acs_client.get_token(acs_user, [CommunicationTokenScope.VOIP])
             user.acs_token = acs_token.token
