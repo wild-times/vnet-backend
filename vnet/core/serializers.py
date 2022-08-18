@@ -18,6 +18,6 @@ class CoreUserSerializer(ModelSerializer):
     class Meta:
         model = CoreUser
         fields = (
-            'username', 'first_name', 'last_name', 'meeting_name', 'profile_image', 'acs_identity', 'acs_token',
+            'username', 'first_name', 'last_name', 'email', 'meeting_name', 'profile_image', 'acs_identity', 'acs_token',
             'auth_token'
         )
