@@ -1,0 +1,30 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width,initial-scale=1"/>
+        <meta name="theme-color" content="#040634"/>
+        <meta name="description" content="Web site combining both client-server and peer-to-peer models for video conferencing"/>
+        <title>VNET | meetings</title>
+        <script defer="defer" src="{% static 'meeting/js/main.7a3bb77f.js' %}"></script>
+        <link href="{% static 'meeting/css/main.1677db34.css' %}" rel="stylesheet">
+    </head>
+
+    <body>
+        <noscript>You need to enable JavaScript to run this app.</noscript>
+
+        <div
+                id="root"
+                class="main"
+                data-user-details-url="{{ user_details_url }}"
+                data-get-meetings-url="{{ get_meetings_url }}"
+                data-create-meeting-url="{{ create_meeting_url }}"
+                data-signalling-server="{{ signalling_server_url }}"
+                data-profile-page="{{ profile_page_url }}"
+                data-vnet-logo="{% static 'main/images/vnet_logo.png' %}"
+                data-vnet-background="{% static 'main/images/main_background.jpeg' %}"
+                data-vnet-background-large="{% static 'main/images/main_background_large.png' %}"
+        ></div>
+    </body>
+</html>
