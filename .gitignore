@@ -3,3 +3,4 @@ env/*
 *.sqlite3
 vnet/.idea/*
 vnet/vnet/*.txt
+vnet/media/profiles/
