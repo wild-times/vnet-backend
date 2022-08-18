@@ -9,7 +9,7 @@ class CoreUserModelAdmin(admin.ModelAdmin):
     fieldsets = [
         (
             None, {
-                'fields': ['username', 'first_name', 'last_name', 'profile_image']
+                'fields': ['username', 'first_name', 'last_name', 'email', 'profile_image']
             }
         ),
         (
