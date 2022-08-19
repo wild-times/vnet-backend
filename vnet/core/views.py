@@ -7,12 +7,12 @@ from django.shortcuts import redirect
 from rest_framework.views import status
 from rest_framework.decorators import api_view, permission_classes
 from django.contrib.auth import views as auth_views
-from django.contrib.auth.mixins import UserPassesTestMixin
+from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
 
 from .serializers import CoreUserSerializer
 
 
-class CoreIndex(TemplateView):
+class CoreIndex(LoginRequiredMixin, TemplateView):
     template_name = 'core/index.html'
 
 
