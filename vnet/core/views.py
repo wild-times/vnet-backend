@@ -74,11 +74,13 @@ def user_details(request):
     return JsonResponse(user_det.data)
 
 
-class CoreLogin(UserPassesTestMixin, auth_views.LoginView):
-    template_name = 'core/sign_in.html'
-
+class CoreUselessUserTest(UserPassesTestMixin):
     def test_func(self):
         return self.request.user.is_anonymous
 
     def handle_no_permission(self):
         return redirect(reverse('core:index'))
+
+
+class CoreLogin(CoreUselessUserTest, auth_views.LoginView):
+    template_name = 'core/sign_in.html'
