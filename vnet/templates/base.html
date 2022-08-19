@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>VNET</title>
+        <link rel="stylesheet" href="{% static 'css/index.css' %}" type="text/css">
+    </head>
+
+    <body>
+
+        <div class="main">
+            <!-- NavBar -->
+            <div class="navbar">
+                <img src="{% static 'main/images/vnet_logo.png' %}" alt="Logo for VNET" class="navbar_vnet_logo">
+
+                {% if user.is_authenticated %}
+                    <div class="navbar_userDetails">
+                        <div class="navbar_userDetails_text">
+                            <p class="navbar_userDetails_username">{{ user.get_full_name }}</p>
+                            <span class="navbar_userDetails_email">{{ user.email }}</span>
+                        </div>
+
+                        <div class="navbar_userDetails_avatar">
+                            <img src="{{ user.profile_image.url }}" alt="user_avatar" class="navbar_avatar_img">
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+            <!-- End of NavBar-->
+
+            <!-- CONTENT GOES HERE -->
+            {% block content %}
+
+            {% endblock content %}
+            <!-- CONTENT ENDS HERE -->
+
+        </div>
+
+        <!-- Links for ions or something IDK-->
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    </body>
+</html>
