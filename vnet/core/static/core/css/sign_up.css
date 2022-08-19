@@ -1,0 +1,49 @@
+.sign-outer-box {
+    width: 70vw;
+    height: 80vh;
+    margin: auto;
+}
+
+.inner-box {
+    width: 90%;
+    height: 100%;
+    margin: auto;
+    background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
+    border-radius: 1em 1em 0 0;
+}
+
+.sign-in-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    height: 12%;
+    border-radius: 1em 1em 0 0;
+}
+
+#sign-form {
+    width: 90%;
+    margin: auto;
+    font-size: 1.7em;
+}
+
+#sign-form > div {
+    margin-top: 1em;
+}
+
+.share-space {
+    display: flex;
+    flex-direction: row;
+}
+
+.share-space > * {
+    width: 50%;
+}
+
+#submit {
+    width: 7em;
+}
+
+#submit > input.wild-buttons {
+    font-size: 1em;
+}

@@ -151,3 +151,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATICFILES_DIRS = (
     str(BASE_DIR / "vnet/static"),
 )
+
+LOGIN_REDIRECT_URL = '/account/'

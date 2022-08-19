@@ -1,0 +1,8 @@
+#sign-form {
+    padding: 1em;
+    width: 70%;
+}
+
+#sign-form > div {
+    margin-top: 2em;
+}
