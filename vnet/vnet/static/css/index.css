@@ -207,7 +207,6 @@ select:focus {
     justify-content: space-between;
     background-color: #680768;
     padding: 0 2em 0 2em;
-    background-image: url("/Images/back.jpeg");
 }
 
 .navbar_vnet_logo {

@@ -13,13 +13,23 @@
 
         <div class="main">
             <!-- NavBar -->
-            <div class="navbar">
-                <img src="{% static 'main/images/vnet_logo.png' %}" alt="Logo for VNET" class="navbar_vnet_logo">
+            <style>
+                nav.navbar {
+                    background: url("{% static 'main/images/main_background_large.png' %}");
+                }
+            </style>
+
+            <nav class="navbar">
+                <a href="/">
+                    <img src="{% static 'main/images/vnet_logo.png' %}" alt="Logo for VNET" class="navbar_vnet_logo">
+                </a>
 
                 {% if user.is_authenticated %}
                     <div class="navbar_userDetails">
                         <div class="navbar_userDetails_text">
-                            <p class="navbar_userDetails_username">{{ user.get_full_name }}</p>
+                            <a href="">
+                                <p class="navbar_userDetails_username">{{ user.get_full_name }}</p>
+                            </a>
                             <span class="navbar_userDetails_email">{{ user.email }}</span>
                         </div>
 
@@ -28,7 +38,7 @@
                         </div>
                     </div>
                 {% endif %}
-            </div>
+            </nav>
             <!-- End of NavBar-->
 
             <!-- CONTENT GOES HERE -->
