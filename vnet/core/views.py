@@ -2,9 +2,12 @@ from django.views.generic import TemplateView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate
 from django.http import JsonResponse
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
+from django.shortcuts import redirect
 from rest_framework.views import status
 from rest_framework.decorators import api_view, permission_classes
+from django.contrib.auth import views as auth_views
+from django.contrib.auth.mixins import UserPassesTestMixin
 
 from .serializers import CoreUserSerializer
 
@@ -69,3 +72,13 @@ def user_details(request):
         user_det = CoreUserSerializer(request.user)
 
     return JsonResponse(user_det.data)
+
+
+class CoreLogin(UserPassesTestMixin, auth_views.LoginView):
+    template_name = 'core/sign_in.html'
+
+    def test_func(self):
+        return self.request.user.is_anonymous
+
+    def handle_no_permission(self):
+        return redirect(reverse('core:index'))

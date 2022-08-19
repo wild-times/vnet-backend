@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'core/css/sign_up.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'core/css/sign_in.css' %}" type="text/css">
+{% endblock style %}
+
+{% block content %}
+    <div class="sign-outer-box">
+        <div class="inner-box">
+            <div class="sign-in-top pouch">
+                <h1>Sign in to VNET</h1>
+            </div>
+
+            <form id="sign-form" method="post">
+                {% csrf_token %}
+                <div>
+                    <label for="username-input">Username</label>
+                    <input type="text" id="username-input" name="username" placeholder="Your username" />
+                </div>
+
+                <div>
+                    <label for="password-input">Password</label>
+                    <input type="password" name="password" id="password-input" placeholder="Your password">
+                </div>
+
+                <div id="submit">
+                    <input type="submit" value="sign in" class="wild-buttons">
+                </div>
+
+                <p>Don't have an account? <a href="#">Sign up</a></p>
+            </form>
+
+        </div>
+    </div>
+{% endblock content %}
