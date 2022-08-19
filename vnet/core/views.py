@@ -1,6 +1,6 @@
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, FormView
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate, login as auth_login
 from django.http import JsonResponse
 from django.urls import reverse_lazy, reverse
 from django.shortcuts import redirect
@@ -8,8 +8,10 @@ from rest_framework.views import status
 from rest_framework.decorators import api_view, permission_classes
 from django.contrib.auth import views as auth_views
 from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
+from django.conf import settings
 
 from .serializers import CoreUserSerializer
+from .forms import CoreUserCreationForm
 
 
 class CoreIndex(LoginRequiredMixin, TemplateView):
@@ -84,3 +86,22 @@ class CoreUselessUserTest(UserPassesTestMixin):
 
 class CoreLogin(CoreUselessUserTest, auth_views.LoginView):
     template_name = 'core/sign_in.html'
+
+
+class CoreSignUp(CoreUselessUserTest, FormView):
+    template_name = 'core/sign_up.html'
+    form_class = CoreUserCreationForm
+    success_url = settings.LOGIN_REDIRECT_URL
+
+    def form_valid(self, form):
+        user = form.save()
+        authenticated_user = authenticate(
+            self.request,
+            username=user.username,
+            password=form.cleaned_data.get('password')
+        )
+
+        if authenticated_user is not None:
+            auth_login(self.request, authenticated_user)
+
+        return super().form_valid(form)

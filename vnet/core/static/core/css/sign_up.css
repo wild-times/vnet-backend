@@ -47,3 +47,12 @@
 #submit > input.wild-buttons {
     font-size: 1em;
 }
+
+.dab {
+    background: #040634;
+    color: azure;
+    margin-left: auto;
+    padding: 1px;
+    border-radius: 0.2em;
+    display: inline-block;
+}

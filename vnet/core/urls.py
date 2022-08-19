@@ -1,7 +1,7 @@
 from django.urls import path
 from django.contrib.auth import views as auth_views
 
-from .views import CoreIndex, user_details, no_login_message, login, CoreLogin
+from .views import CoreIndex, user_details, no_login_message, login, CoreLogin, CoreSignUp
 
 app_name = 'core'
 
@@ -24,4 +24,7 @@ urlpatterns = [
 
     # account/sign-out/
     path('sign-out/', auth_views.LogoutView.as_view(), name='sign-out'),
+
+    # account/sign-up/
+    path('sign-up/', CoreSignUp.as_view(), name='sign-up'),
 ]
