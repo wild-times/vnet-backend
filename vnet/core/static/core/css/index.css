@@ -1,0 +1,141 @@
+.profilePage_main {
+    border: 1px solid transparent;
+    height: 76vh;
+    width: 80vw;
+    background-color: #f1f1f1;
+    border-radius: 4.2em 4.2em 0 4.2em;
+    padding: 2em 2.5em 0 2.5em;
+    display: flex;
+    align-self: center;
+}
+
+
+.profilePage_sidebar, .profilePage_user {
+    border-radius: 3em 3em 0 0;
+}
+
+.profilePage_sidebar {
+    flex: 0.25;
+    flex-direction: column;
+    padding: 2em 2em 0 2em;
+    margin-right: 2em;
+    height: 50%;
+    background: linear-gradient(180deg, #D9D9D9 0%, rgba(217, 217, 217, 0) 100%);
+}
+
+.profilePage_sidebar_content {
+    display: flex;
+    align-items: center;
+    height: 4em;
+}
+
+ion-icon {
+    color: #5A035A;
+    height: 3em;
+    width: 3em;
+    margin-right: 3em;
+}
+
+.profilePage_sidebar_content .sd-c {
+    text-decoration: none;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 1.5em;
+    color: #5A035A;
+    cursor: pointer;
+}
+
+.profilePage_sidebar_content .sd-c:hover {
+    text-decoration: underline;
+}
+
+
+button.sd-c {
+  background: none!important;
+  border: none;
+  padding: 0!important;
+  /*text-decoration: underline;*/
+  cursor: pointer;
+}
+
+.profilePage_user {
+    flex: 0.75;
+    opacity: 100%;
+    background-color: #FCFCFC;
+    padding: 1.6em;
+}
+
+.profilePage_user_banner {
+    height: 10em;
+    width: 100%;
+    border-radius: 2.4em 2.4em 0.4em 0.4em;
+    display: flex;
+    flex-wrap: wrap;
+    filter: saturate(130%);
+}
+
+.profilePage_user_avatar_and_name {
+    position: relative;
+    border-radius: 1.5em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 6em;
+    padding-left: 14em;
+    padding-right: 2em;
+}
+
+.profilePage_user_avatar_img_sub {
+    width: 9em;
+    height: 8.5em;
+    border-radius: 2.5em;
+    position: absolute;
+    left: 3em;
+    top: -2.5em;
+}
+
+.profilePage_user_avatar_and_name > .profilePage_user_user_name {
+    color: #5A035A;
+    font-size: 1.8em;
+    font-weight: 600;
+}
+
+.profilePage_user_avatar_and_name > .profilePage_user_edit_details_span {
+    color: #5A035A;
+    text-decoration: underline;
+    font-size: 1.4em;
+    cursor: pointer;
+}
+
+.profilePage_user_edit_details_span:hover {
+    color: #680768;
+}
+
+.profilePage_user_details {
+    display: flex;
+    flex-direction: column;
+    padding-left: 5.5em;
+    margin-top: 2em;
+}
+
+.profilePage_user_details_user_details_sub_div {
+    padding-right: 1em;
+    display: flex;
+}
+
+.profilePage_user_details_user_details_sub_div > span {
+    width: 25%;
+    font-weight: bold;
+    color: #330033;
+    margin-top: 1em;
+}
+
+.profilePage_user_details_user_details_sub_div > a {
+    margin-right: 5em;
+    display: inline-block;
+}
+
+.profilePage_user_details_user_details_sub_div > * {
+    font-size: 1.7em;
+    margin-top: 1em;
+}
