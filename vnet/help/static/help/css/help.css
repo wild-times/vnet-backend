@@ -3,7 +3,7 @@
     margin: auto auto 5em;
 }
 
-.article-main > h1 {
+.article-main > div > h1 {
     text-align: center;
     font-size: 4em;
 }
