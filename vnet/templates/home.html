@@ -1,13 +1,75 @@
-{% extends 'base.html' %}
-
 {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="{% static 'css/home.css' %}">
+	<title>VNET</title>
+</head>
+<body>
+    <style type="text/css">
+        body {
+            background-image: url("{% static 'main/images/main_background_large.png' %}");
+        }
+    </style>
 
-{% block title %}Home{% endblock title %}
+    <div class="main">
+        <div class="navbar">
+            <img alt="the logo for vnet" src="{% static 'main/images/vnet_logo.png' %}" width="180px" height="90px" />
+            <div class="navbar_buttons">
+                <button class="signin">
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'core:index' %}">Account</a>
+                    {% else %}
+                        <a href="{% url 'core:sign-in' %}">Sign In</a>
+                    {% endif %}
+                </button>
+                <button class="signup">
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'meeting-main' '' %}">Meetings</a>
+                    {% else %}
+                        <a href="{% url 'core:sign-up' %}">Sign Up</a>
+                    {% endif %}
+                </button>
+            </div>
+        </div>
 
-{% block style %}
+        <div class="text">
+            <p class="connected">
+                Staying Connected Has Never Been Easier!
+            </p>
+            <p class="topnotch">
+            Top-Notch Video Conferencing and Online Meeting tools are what VNET brings to the table. All Free!
+            </p>
+        </div>
+        <div class="getstartedbox">
+            <button class="getstarted">
+                <a href="{% url 'help:index' %}?q=getting-started">Get Started</a>
+            </button>
+        </div>
 
-{% endblock style %}
+        <div class="footer">
 
-{% block content %}
+            <div>
+                <p class="VNET2022">
+                    V-NET @ 2022
+                </p>
+            </div>
+            <div class="footer_icons">
+                <div class="fb">
+                    <a href="https://www.facebook.com" target="_blank">
+                        <img alt="facebook icon" src="{% static 'main/images/facebook.png' %}" width="40" height="40px">
+                    </a>
+                </div>
+                <div class="twitter">
+                    <a href="https://www.twitter.com" target="_blank">
+                        <img alt="twitter icon" src="{% static 'main/images/twitter.png' %}" width="32" height="32px">
+                    </a>
+                </div>
 
-{% endblock content %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
