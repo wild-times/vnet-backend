@@ -1,5 +1,6 @@
 from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.core.exceptions import ObjectDoesNotExist
 from django.views.generic import TemplateView
@@ -62,7 +63,7 @@ def create_meeting(request):
     return JsonResponse(content, status=st)
 
 
-class MainMeetingView(TemplateView):
+class MainMeetingView(LoginRequiredMixin, TemplateView):
     template_name = 'meeting/meet.html'
 
     def get_context_data(self, **kwargs):
