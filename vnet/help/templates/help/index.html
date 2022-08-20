@@ -10,20 +10,27 @@
 
 {% block content %}
     <div class="article-mix">
-        <form method="get" autocomplete="off">
-            <input type="text" name="q" id="query" placeholder="Search for help" />
+        <form action="{% url 'help:index' %}" method="get" autocomplete="off">
+            <input required type="text" name="q" id="query" placeholder="Search for help" value="{% if q %}{{ q }}{% endif %}" />
             <input type="submit" value="search">
         </form>
 
         <div class="articles-all">
             {% if q %}
-                <h1>Results for {{ q }}</h1>
+                <h1>Results for "{{ q }}"{% if t %} tagged "{{ t }}"{% endif %}</h1>
+            {% endif %}
+
+            {% if t and not q %}
+                <h1>Articles tagged "{{ t }}"</h1>
             {% endif %}
 
             <div class="center-mix">
                 {% for major_tag in major_tags %}
                     <a href="{% url 'help:index' %}?t={{ major_tag }}" class="article-tag">{{ major_tag }}</a>
                 {% endfor %}
+                    {% if t and articles %}
+                        <a href="{% url 'help:index' %}" class="article-tag">clear</a>
+                    {% endif %}
             </div>
 
             {% for article in articles %}
@@ -33,7 +40,8 @@
                 </div>
                 <hr>
             {% empty %}
-                <h1 class="center-mix">No article available{% if q %} for {{ q }}{% endif %}</h1>
+                <h1 class="center-mix">No article available{% if q %} for "{{ q }}"{% endif %}{% if t %} tagged "{{ t }}"{% endif %}</h1>
+                <a href="{% url 'help:index' %}" class="article-tag">clear</a>
             {% endfor %}
         </div>
     </div>
