@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Help{% endblock title %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'help/css/index_help.css' %}">
+{% endblock style %}
+
+{% block content %}
+    <div class="article-mix">
+        <form method="get" autocomplete="off">
+            <input type="text" name="q" id="query" placeholder="Search for help" />
+            <input type="submit" value="search">
+        </form>
+
+        <div class="articles-all">
+            {% if q %}
+                <h1>Results for {{ q }}</h1>
+            {% endif %}
+
+            <div class="center-mix">
+                {% for major_tag in major_tags %}
+                    <a href="{% url 'help:index' %}?t={{ major_tag }}" class="article-tag">{{ major_tag }}</a>
+                {% endfor %}
+            </div>
+
+            {% for article in articles %}
+                <div class="article">
+                    <a href="{{ article.get_absolute_url }}"><h2>{{ article.title }}</h2></a>
+                    <p>{{ article.content|truncatechars:150 }}</p>
+                </div>
+                <hr>
+            {% empty %}
+                <h1 class="center-mix">No article available{% if q %} for {{ q }}{% endif %}</h1>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock content %}
