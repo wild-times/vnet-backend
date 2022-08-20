@@ -67,11 +67,5 @@ class MainMeetingView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context.update({
-            'user_details_url': f"{reverse('core:user-details')}?acs=1",
-            'get_meetings_url': reverse('meeting:all-meetings'),
-            'create_meeting_url': reverse('meeting:new-meeting'),
-            'signalling_server_url': f'ws://{self.request.META.get("HTTP_HOST")}/vnet/ps/',
-            'profile_page_url': '',
-        })
+        context['signalling_server_url'] = f'ws://{self.request.META.get("HTTP_HOST")}/vnet/ps/'
         return context
