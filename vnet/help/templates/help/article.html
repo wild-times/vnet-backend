@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Help - {{ article.title }}{% endblock title %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'help/css/help.css' %}" type="text/css">
+{% endblock style %}
+
+{% block content %}
+    <div class="article-main">
+        <h1>{{ article.title }}</h1>
+        <div class="center-mix">
+            {% for tag in article.get_all_tags %}
+                <a href="{% url 'help:index' %}?t={{ tag }}" class="article-tag">{{ tag }}</a>
+            {% endfor %}
+        </div>
+        <hr />
+        <pre class="article-content">{{ article.content }}</pre>
+    </div>
+{% endblock content %}
