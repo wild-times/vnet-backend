@@ -1,10 +1,71 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Whatever</title>
-</head>
+{% extends 'base.html' %}
 
-<body>
-    <h2>Welcome to eternity</h2>
-</body>
-</html>
+{% load static %}
+
+{% block title %}{{ user.username }} - account page{% endblock title %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'core/css/index.css' %}" type="text/css">
+{% endblock style %}
+
+{% block content %}
+    <div class="profilePage_main">
+        <div class="profilePage_sidebar">
+            <div class="profilePage_sidebar_content">
+                <ion-icon name="home"></ion-icon>
+                <a href="{% url 'home' %}" class="home_title sd-c">Home</a>
+            </div>
+
+            <div class="profilePage_sidebar_content">
+                <ion-icon name="calendar"></ion-icon>
+                <a href="{% url 'meeting-main' '' %}" class="sd-c meetings_title">Scheduled Meetings</a>
+            </div>
+
+            <div class="profilePage_sidebar_content">
+                <ion-icon name="log-out-outline"></ion-icon>
+                <form action="{% url 'core:sign-out' %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="logout_title sd-c">Log Out</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="profilePage_user">
+            <div class="profilePage_user_banner_and_name">
+                <style>
+                    .profilePage_user_banner {
+                        background: url("{% static 'main/images/main_background_large.png' %}") repeat-x center;
+                    }
+                </style>
+                <div class="profilePage_user_banner"></div>
+
+                <div class="profilePage_user_avatar_and_name">
+                    <img src="{{ user.profile_image.url }}" alt="user_avatar" class="profilePage_user_avatar_img_sub">
+                    <span class="profilePage_user_user_name">{{ user.get_full_name }} • {{ user.username }}</span>
+                </div>
+            </div>
+
+            <div class="profilePage_user_details">
+                <div class="profilePage_user_details_user_details_sub_div">
+                    <span>First Name</span>
+                    <p class="profilePage_user_details_first_name">{{ user.first_name }}</p>
+                </div>
+
+                <div class="profilePage_user_details_user_details_sub_div">
+                    <span>Last Name</span>
+                    <p class="profilePage_user_details_last_name">{{ user.last_name }}</p>
+                </div>
+
+                <div class="profilePage_user_details_user_details_sub_div">
+                    <span>Email</span>
+                    <p class="profilePage_user_details_user_email">{{ user.email }}</p>
+                </div>
+
+                <div class="profilePage_user_details_user_details_sub_div">
+                    <span>Meeting Name</span>
+                    <p class="profilePage_user_details_meeting_name">{{ user.meeting_name }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
