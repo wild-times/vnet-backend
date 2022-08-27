@@ -12,7 +12,7 @@ The main disticntion with VNET is that a client can share the incoming streams w
 ## Overview
 To intergrate video conferencing, VNET uses Microsoft's **Azure Communication Services** for the video/audio backend. The official documentation describes Azure Communication Services as cloud-based services with REST APIs and client library SDKs available to help you integrate communication into your applications. It provides you with communication capabilities, including the ability to make and/or receive phone calls, sending and/or receiving text messages, making audio and video calls over IP and hosting group meetings and chat. It is a client-to-server model. It is the same backend service used by Microsoft Teams.
 
-<iframe width="635" height="357" src="https://www.youtube.com/embed/chMHVHLFcao" title="Introduction to Azure Communication Services" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![ACS getting started](https://i.ytimg.com/vi_webp/chMHVHLFcao/maxresdefault.webp)](https://www.youtube.com/watch?v=chMHVHLFcao)
 
 **[✨ More information on Azure Communication Services](https://docs.microsoft.com/en-us/azure/communication-services/overview 'Overview of ACS')**
 
@@ -102,5 +102,8 @@ Before using this repo, you need an active Azure subscription, learn how [here](
     python manage.py migrate
     ```
 6. Run server.
+
+
+> Please read more on the links marked ✨
    
 &copy; 2022 Wild Times
