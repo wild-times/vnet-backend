@@ -4,3 +4,4 @@ env/*
 vnet/.idea/*
 vnet/vnet/*.txt
 vnet/media/profiles/
+vnet/.vscode/
