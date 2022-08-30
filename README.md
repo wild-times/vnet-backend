@@ -1,5 +1,5 @@
 # VNET BACKEND
-VNET is a video conferencing web application built in Django. 
+VNET is a video conferencing web application built in Python using Django. 
 The main disticntion with VNET is that a client can share the incoming streams with another peer on their network ([Explained here](https://github.com/wild-times/vnet-frontend)). 
 
 ## Contents.
