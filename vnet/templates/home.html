@@ -18,20 +18,27 @@
         <div class="navbar">
             <img alt="the logo for vnet" src="{% static 'main/images/vnet_logo.png' %}" width="180px" height="90px" />
             <div class="navbar_buttons">
-                <button class="signin">
-                    {% if user.is_authenticated %}
-                        <a href="{% url 'core:index' %}">Account</a>
-                    {% else %}
-                        <a href="{% url 'core:sign-in' %}">Sign In</a>
-                    {% endif %}
-                </button>
-                <button class="signup">
-                    {% if user.is_authenticated %}
-                        <a href="{% url 'meeting-main' '' %}">Meetings</a>
-                    {% else %}
-                        <a href="{% url 'core:sign-up' %}">Sign Up</a>
-                    {% endif %}
-                </button>
+                
+                {% if user.is_authenticated %}
+                    <a href="{% url 'core:index' %}">
+                        <button class="signin">Account</button>
+                    </a>
+                {% else %}
+                    <a href="{% url 'core:sign-in' %}">
+                        <button class="signin">Sign In</button>
+                    </a>
+                {% endif %}
+                
+                {% if user.is_authenticated %}
+                    <a href="{% url 'meeting-main' '' %}">
+                        <button class="signup">Meetings</button>
+                    </a>
+                {% else %}
+                    <a href="{% url 'core:sign-up' %}">
+                        <button class="signup">Sign Up</button>
+                    </a>
+                {% endif %}
+
             </div>
         </div>
 
@@ -43,10 +50,12 @@
             Top-Notch Video Conferencing and Online Meeting tools are what VNET brings to the table. All Free!
             </p>
         </div>
-        <div class="getstartedbox">
-            <button class="getstarted">
-                <a href="{% url 'help:index' %}?t=Start">Get Started</a>
-            </button>
+        <div class="getstartedbox">     
+            <a href="{% url 'help:index' %}?t=Start">
+                <button class="getstarted">
+                    Get Started
+                </button>
+            </a>
         </div>
 
         <div class="footer">
